@@ -124,10 +124,14 @@ uv run ruff check tests/
 
 **Step 2 — review uncommitted changes**
 
-```bash
-inspect-5p
-```
+Run `git diff HEAD` and review the output in 5 focused passes:
 
-`inspect-5p` is a shell function available in this environment. It runs a 5-pass review of uncommitted changes covering: security, correctness, design, testing, and conventions.
+It runs a 5-pass review of uncommitted changes covering: security, correctness, design, testing, and conventions.
 
-Fix any issues found → re-run tests → then commit.
+1. **Security** — secrets exposure, unsafe inputs, injection risks, auth issues
+1. **Correctness** — logic errors, wrong assumptions, edge cases, off-by-one
+1. **Design** — coupling, cohesion, SRP violations, unnecessary abstractions
+1. **Testing** — missing coverage, brittle assertions, untested edge cases
+1. **Conventions** — naming, import order, code style, project-specific patterns
+
+For each pass, list issues found. Fix any issues → re-run tests → then commit.
