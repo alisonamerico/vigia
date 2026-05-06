@@ -1,9 +1,13 @@
 [project]
 name = "vigia"
 version = "0.1.0"
-description = "Add your description here"
+description = "Monitoramento de riscos climáticos para Pernambuco"
 readme = "README.md"
 requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "alembic>=1.18.4",
     "asyncpg>=0.31.0",
@@ -12,10 +16,42 @@ dependencies = [
     "geoalchemy2>=0.19.0",
     "httpx>=0.28.1",
     "pydantic-settings>=2.14.0",
-    "pytest>=9.0.3",
-    "pytest-asyncio>=1.3.0",
     "python-telegram-bot>=22.7",
     "redis>=7.4.0",
     "sqlalchemy[asyncio]>=2.0.49",
     "uvicorn>=0.46.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "pytest-asyncio>=1.3.0",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.12.0",
+    "taskipy>=1.14.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["data*", "migrations*", "tests*"]
+
+[tool.ruff]
+line-length = 79
+extend-exclude = ["migrations"]
+format.preview = true
+format.quote-style = "single"
+lint.select = ["E", "F", "I", "PL", "PT", "W"]
+lint.preview = true
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = '-p no:warnings'
+
+[tool.taskipy.tasks]
+pre_lint = 'typos'
+lint = 'ruff check'
+pre_format = 'ruff check --fix'
+format = 'ruff format'
+test = 'pytest -s -x --cov=app -vv'
+post_test = 'coverage html'

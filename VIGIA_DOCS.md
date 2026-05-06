@@ -785,6 +785,7 @@ ______________________________________________________________________
 - Setup do projeto com uv
 - Docker Compose com PostgreSQL + PostGIS + Redis
 - Models: Region, Reading, Alert, User
+- Pydantic schemas
 - Migrations com Alembic
 - Endpoints REST: `GET /alerts`, `GET /regions`, `GET /health`
 - Seed das regiões de Pernambuco via GeoJSON
