@@ -5,7 +5,7 @@ from app.database import Base
 
 
 class Alert(Base):
-    __tablename__ = "alerts"
+    __tablename__ = 'alerts'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     region: Mapped[str] = mapped_column(String(100), nullable=False)

@@ -10,11 +10,6 @@ app = FastAPI(
     version='0.1.0',
 )
 
-app.include_router(alerts_router, prefix="/alerts", tags=["alerts"])
-app.include_router(regions_router, prefix="/regions", tags=["regions"])
-app.include_router(health_router, prefix="/health", tags=["health"])
-
-
-@app.get('/health')
-async def health_check():
-    return {'status': 'ok'}
+app.include_router(alerts_router, prefix='/alerts', tags=['alerts'])
+app.include_router(regions_router, prefix='/regions', tags=['regions'])
+app.include_router(health_router, prefix='/health', tags=['health'])

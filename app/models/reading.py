@@ -5,7 +5,7 @@ from app.database import Base
 
 
 class Reading(Base):
-    __tablename__ = "readings"
+    __tablename__ = 'readings'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     source: Mapped[str] = mapped_column(String(50), nullable=False)

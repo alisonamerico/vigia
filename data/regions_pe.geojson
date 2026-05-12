@@ -1,0 +1,37 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Recife"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-34.95, -8.05],
+          [-34.88, -8.05],
+          [-34.88, -8.00],
+          [-34.95, -8.00],
+          [-34.95, -8.05]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Olinda"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-34.88, -8.05],
+          [-34.82, -8.05],
+          [-34.82, -8.00],
+          [-34.88, -8.00],
+          [-34.88, -8.05]
+        ]]
+      }
+    }
+  ]
+}

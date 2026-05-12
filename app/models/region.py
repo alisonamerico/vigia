@@ -6,12 +6,12 @@ from app.database import Base
 
 
 class Region(Base):
-    __tablename__ = "regions"
+    __tablename__ = 'regions'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     nome: Mapped[str] = mapped_column(String(100), nullable=False)
     geom: Mapped[str] = mapped_column(
-        Geometry("POLYGON", srid=4326), nullable=False
+        Geometry('POLYGON', srid=4326), nullable=False
     )
     threshold_green: Mapped[float] = mapped_column(Float, default=30.0)
     threshold_yellow: Mapped[float] = mapped_column(Float, default=50.0)

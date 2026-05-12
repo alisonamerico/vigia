@@ -69,13 +69,13 @@ def test_user_create_schema():
 THRESHOLD_GREEN = 30.0
 
 GEOM_RECIFE = (
-    "SRID=4326;"
-    "POLYGON((-34.9 -8.1, -34.8 -8.1, -34.8 -8.0, -34.9 -8.0, -34.9 -8.1))"
+    'SRID=4326;'
+    'POLYGON((-34.9 -8.1, -34.8 -8.1, -34.8 -8.0, -34.9 -8.0, -34.9 -8.1))'
 )
 
 GEOM_JABOAO = (
-    "SRID=4326;"
-    "POLYGON((-34.9 -8.1, -34.8 -8.1, -34.8 -8.0, -34.9 -8.0, -34.9 -8.1))"
+    'SRID=4326;'
+    'POLYGON((-34.9 -8.1, -34.8 -8.1, -34.8 -8.0, -34.9 -8.0, -34.9 -8.1))'
 )
 
 
@@ -83,14 +83,14 @@ def test_region_schema_creation():
     """Test RegionSchema can be created with valid data."""
     region = RegionSchema(
         id=1,
-        nome="Recife",
+        nome='Recife',
         geom=GEOM_RECIFE,
         threshold_green=THRESHOLD_GREEN,
         threshold_yellow=50.0,
         threshold_orange=100.0,
         threshold_red=150.0,
     )
-    assert region.nome == "Recife"
+    assert region.nome == 'Recife'
     assert region.threshold_green == THRESHOLD_GREEN
 
 
